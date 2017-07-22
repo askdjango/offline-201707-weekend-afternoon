@@ -4,5 +4,5 @@
     <h1>{{ post.title }}</h1>
     {{ post.content|linebreaks }}
     <hr/>
-    <a href="{% url "post_list" %}">목록으로</a>
+    <a href="{% url "blog:post_list" %}">목록으로</a>
 {% endblock %}
