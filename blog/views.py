@@ -17,6 +17,13 @@ def post_list(request):
         'query': query,
     })
 
+def post_detail(request, pk):
+    # pk = "100"
+    post = Post.objects.get(pk=pk)
+    return render(request, 'blog/post_detail.html', {
+        'post': post,
+    })
+
 def mysum(request, numbers):
     # "10/20/30/40/50/60".split("/")
 
