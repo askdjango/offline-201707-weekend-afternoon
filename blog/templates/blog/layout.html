@@ -1,24 +1,8 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>AskDjango 블로그</title>
-        <style>
-            body { background-color: pink; }
-        </style>
-        <!-- <script></script> -->
-    </head>
-    <body>
+{% extends "layout.html" %}
 
-        <h1>AskDjango</h1>
+{% block extra_head %}
+<style>
+body { background-color: #339933; }
+</style>
+{% endblock %}
 
-        <p>
-        여러분의 파이썬/장고 페이스메이커가 되겠습니다.
-        </p>
-
-        나머지 이부분에 post_list/post_detail 에서의 내용을 채워넣을 예정 !!!
-        {% block content %}
-        {% endblock %}
-    </body>
-
-</html>
