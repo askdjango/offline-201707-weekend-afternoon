@@ -10,7 +10,8 @@
         {% for post in post_list %}
         <li>
             {{ post.pk }}
-            <a href="/blog/{{ post.pk }}/">
+
+            <a href="{% url "post_detail" post.pk %}">
                 {{ post.title }}
             </a>
             <small>({{ post.created_at|timesince }} ago)</small>
