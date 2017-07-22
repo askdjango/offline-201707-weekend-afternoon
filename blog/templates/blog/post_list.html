@@ -1,32 +1,21 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>AskDjango 블로그</title>
-</head>
-<body>
+{% extends "blog/layout.html" %}
 
-<h1>AskDjango</h1>
+{% block content %}
+    <form action="" method="get">
+        <input type="text" name="query" value="{{ query }}" />
+        <input type="submit" value="검색" />
+    </form>
 
-<p>
-여러분의 파이썬/장고 페이스메이커가 되겠습니다.
-</p>
+    <ul>
+        {% for post in post_list %}
+        <li>
+            {{ post.pk }}
+            <a href="/blog/{{ post.pk }}/">
+                {{ post.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 
-<form action="" method="get">
-    <input type="text" name="query" value="{{ query }}" />
-    <input type="submit" value="검색" />
-</form>
+{% endblock %}
 
-<ul>
-{% for post in post_list %}
-    <li>
-        {{ post.pk }}
-        <a href="/blog/{{ post.pk }}/">
-            {{ post.title }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
-
-</body>
-</html>
