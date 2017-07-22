@@ -13,6 +13,7 @@
             <a href="/blog/{{ post.pk }}/">
                 {{ post.title }}
             </a>
+            <small>({{ post.created_at|timesince }} ago)</small>
         </li>
         {% endfor %}
     </ul>
