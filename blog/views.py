@@ -46,6 +46,29 @@ def post_new(request):
     })
 
 
+def post_edit(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    if request.method == 'POST':
+            # request.GET
+        # request.POST  # POST인자, 파일 제외
+        # request.FILES  # POST인자, 파일만
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            # form.cleaned_data  # {'title': ??, 'author': ??}
+            post = form.save()
+            return redirect('blog:post_detail', post.id)
+        #else:
+        #    form.errors
+    else:
+        # if request.method == 'GET':
+        form = PostForm(instance=post)
+
+    return render(request, 'blog/post_form.html', {
+        'form': form,
+    })
+
+
 def post_detail(request, pk):
     # pk = "100"
     post = Post.objects.get(pk=pk)
