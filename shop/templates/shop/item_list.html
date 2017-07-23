@@ -1,0 +1,16 @@
+
+<ul>
+{% for item in item_list %}
+<li>
+    <a href="{{ item.get_absolute_url }}">
+        {{ item.name }}
+    </a>
+    : {{ item.price }} at {{ item.created_at }}
+</li>
+{% endfor %}
+</ul>
+
+<hr/>
+
+<a href="{% url "shop:item_new" %}">New Item</a>
+

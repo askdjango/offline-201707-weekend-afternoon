@@ -1,0 +1,9 @@
+<h1>{{ item.name }} ({{ item.price }}원)</h1>
+
+{{ item.desc }}
+
+<hr/>
+
+<a href="{% url "shop:item_list" %}">목록</a>
+<a href="{% url "shop:item_edit" item.id %}">수정</a>
+<a href="{% url "shop:item_delete" item.id %}">삭제</a>

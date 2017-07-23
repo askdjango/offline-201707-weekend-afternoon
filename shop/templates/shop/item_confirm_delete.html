@@ -1,0 +1,9 @@
+
+<h1>{{ item.name }}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    후회없죠?
+    <input type="submit" value="없습니다. 지우세요." />
+</form>
