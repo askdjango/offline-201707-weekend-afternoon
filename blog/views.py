@@ -1,7 +1,8 @@
 import datetime
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .forms import PostForm
 from .models import Post
 
 def post_list(request):
@@ -23,6 +24,27 @@ def post_list(request):
         'query': query,
         'date_list': date_list,
     })
+
+
+def post_new(request):
+    if request.method == 'POST':
+        # request.GET
+        # request.POST  # POST인자, 파일 제외
+        # request.FILES  # POST인자, 파일만
+        form = PostForm(request.POST)
+        if form.is_valid():
+            # form.cleaned_data  # {'title': ??, 'author': ??}
+            post = form.save()
+            return redirect('blog:post_detail', post.id)
+        #else:
+        #    form.errors
+    else:
+    # if request.method == 'GET':
+        form = PostForm()
+    return render(request, 'blog/post_form.html', {
+        'form': form,
+    })
+
 
 def post_detail(request, pk):
     # pk = "100"
