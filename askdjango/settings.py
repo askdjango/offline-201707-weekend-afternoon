@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'debug_toolbar',
     'blog',
+    'shop',
 ]
 
 MIDDLEWARE = [
