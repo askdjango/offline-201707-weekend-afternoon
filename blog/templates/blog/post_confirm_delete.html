@@ -1,0 +1,11 @@
+<h1>{{ post.title }}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    정말 삭제하시겠습니까? 후회없으시죠?
+    낙장불입 !!!
+
+    <input type="submit" value="후회없습니다. 삭제하세요." />
+</form>
+

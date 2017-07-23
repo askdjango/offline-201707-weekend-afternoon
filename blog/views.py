@@ -77,6 +77,17 @@ def post_detail(request, pk):
         'post': post,
     })
 
+
+def post_delete(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('blog:post_list')
+    return render(request, 'blog/post_confirm_delete.html', {
+        'post': post,
+    })
+
+
 def mysum(request, numbers):
     # "10/20/30/40/50/60".split("/")
 
