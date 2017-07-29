@@ -1,34 +1,28 @@
 {% extends "blog/layout.html" %}
 
 {% block content %}
-    <form action="" method="get">
-        <input type="text" name="query" value="{{ query }}" />
-        <input type="submit" value="검색" />
-    </form>
+    <div class="pull-right">
+        <form action="" method="get">
+            <input type="text" name="query" value="{{ query }}" />
+            <input type="submit" value="검색" />
+        </form>
+    </div>
 
-    <a href="{% url "blog:post_new" %}">New Post</a>
+    <a href="{% url "blog:post_new" %}" class="btn btn-primary">New Post</a>
 
-    <ul>
+    <table class="table table-hover table-bordered">
         {% for post in post_list %}
-        <li>
-            {{ post.pk }}
-
-            <a href="{% url "blog:post_detail" post.pk %}">
-                {{ post.title }}
-            </a>
-            <small>({{ post.created_at|timesince }} ago)</small>
-        </li>
+        <tr>
+            <td>
+                <a href="{% url "blog:post_detail" post.pk %}">
+                    {{ post.title }}
+                </a>
+            </td>
+            <td>
+                <small>({{ post.created_at|timesince }} ago)</small>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
-
-    <hr/>
-
-    {% for current_date in date_list %}
-        {% ifchanged %}
-            <h3>{{ current_date|date:"M" }}</h3>
-        {% endifchanged %}
-        {{ current_date }}<br/>
-    {% endfor %}
-
+    </table>
 {% endblock %}
 
