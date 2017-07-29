@@ -31,7 +31,7 @@ def post_new(request):
         # request.GET
         # request.POST  # POST인자, 파일 제외
         # request.FILES  # POST인자, 파일만
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             # form.cleaned_data  # {'title': ??, 'author': ??}
             post = form.save()
@@ -54,7 +54,7 @@ def post_edit(request, pk):
             # request.GET
         # request.POST  # POST인자, 파일 제외
         # request.FILES  # POST인자, 파일만
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             # form.cleaned_data  # {'title': ??, 'author': ??}
             post = form.save()
