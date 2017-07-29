@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
+{% load static %}
 
 {% block extra_head %}
 <style>
 </style>
+{% endblock %}
+
+{% block logo %}
+    <img src="{% static "blog/logo.png" %}" style="width: 100px;" />
 {% endblock %}
 
