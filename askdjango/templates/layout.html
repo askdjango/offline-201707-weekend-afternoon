@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <title>AskDjango 서비스</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" />
 <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% block extra_head %}{% endblock %}
@@ -34,7 +34,7 @@
                         <li><a href="{% url "login" %}">로그인</a></li>
                     {% else %}
                         <li><a href="{% url "profile" %}">{{ user }} 프로필</a></li>
-                        <li><a href="#">로그아웃</a></li>
+                        <li><a href="{% url "logout" %}">로그아웃</a></li>
                     {% endif %}
 
                 </ul>
