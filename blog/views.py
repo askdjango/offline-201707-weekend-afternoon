@@ -1,4 +1,5 @@
 import datetime
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -20,6 +21,7 @@ def post_list(request):
     })
 
 
+@login_required
 def post_new(request):
     if request.method == 'POST':
         # request.GET
@@ -41,6 +43,7 @@ def post_new(request):
     })
 
 
+@login_required
 def post_edit(request, pk):
     post = Post.objects.get(pk=pk)
 
@@ -72,6 +75,7 @@ def post_detail(request, pk):
     })
 
 
+@login_required
 def post_delete(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
