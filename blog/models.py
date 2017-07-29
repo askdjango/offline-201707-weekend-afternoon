@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100,
             validators=[min_length_3_validator],
             help_text='이름 3글자만 넣어주세요.')
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to='blog/post/%Y/%m/%d')
     content = models.TextField(help_text='Markdown 문법을 지원합니다.')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
