@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.core.exceptions import ValidationError
+# from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -9,7 +11,8 @@ def min_length_3_validator(value):
 
 
 class Post(models.Model):
-    author = models.CharField(max_length=20)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    # author = models.CharField(max_length=20)
     title = models.CharField(max_length=100,
             validators=[min_length_3_validator],
             help_text='이름 3글자만 넣어주세요.')
