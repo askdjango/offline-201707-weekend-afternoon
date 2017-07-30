@@ -30,7 +30,9 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             # form.cleaned_data  # {'title': ??, 'author': ??}
-            post = form.save()
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
             # return redirect('blog:post_detail', post.id)
             return redirect(post)  # post.get_absolute_url()로 이동
         #else:
