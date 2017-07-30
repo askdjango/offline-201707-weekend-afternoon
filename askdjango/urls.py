@@ -17,8 +17,12 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.shortcuts import redirect, render
 
 urlpatterns = [
+    # url(r'^$', lambda request: render(request, 'root.html'), name='root'),
+    url(r'^$', lambda request: redirect('blog:post_list'), name='root'),
+
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^accounts/', include('allauth.urls')),
