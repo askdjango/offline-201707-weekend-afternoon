@@ -2,5 +2,12 @@
 
 {% block content %}
     <h3>{{ user }}'s Profile</h3>
+
+    {{ user.socialaccount_set.all.first.get_avatar_url }}
+
+    <p>
+        <img src="{{ user.socialaccount_set.all.first.get_avatar_url }}" />
+    </p>
+
 {% endblock %}
 
